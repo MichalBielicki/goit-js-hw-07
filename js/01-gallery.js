@@ -23,7 +23,7 @@ function selectImage(event) {
   if (event.target.nodeName !== "IMG") {
     return;
   }
-  for (const item of galleryItems) {
+  galleryItems.forEach((item) => {
     const modal = basicLightbox.create(`<img src=${item.original}>`);
     if (event.target.src === item.preview) {
       modal.show();
@@ -35,8 +35,6 @@ function selectImage(event) {
         }
       });
     }
-  }
+  });
 }
-
-createGalleryItems(galleryItems);
 gallery.addEventListener("click", selectImage);
